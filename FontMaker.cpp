@@ -66,7 +66,7 @@ void MakeFont::print(int16_t x,int16_t y,String str,uint16_t color,uint16_t back
 {
    unsigned char offset=0;
    uint16_t utf8_addr;
-   unsigned char *s = &str[0];
+   unsigned char *s = (unsigned char *)&str[0];
    while(*s)
    {
       utf8_addr=UTF8_GetAddr((unsigned char *)s,&offset);
@@ -116,7 +116,7 @@ void MakeFont::print_noBackColor(int16_t x,int16_t y,String str,uint16_t color)
 {
    unsigned char offset=0;
    uint16_t utf8_addr;
-   unsigned char *s = &str[0];
+   unsigned char *s = (unsigned char *)&str[0];
    while(*s)
    {
       utf8_addr=UTF8_GetAddr((unsigned char *)s,&offset);
