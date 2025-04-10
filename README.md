@@ -18,7 +18,7 @@ void setpx(int16_t x,int16_t y,uint16_t color)
 
 MakeFont myfont(&setpx);
 
-Thay đổi hàm tft.drawPixel thành hàm vẽ 1 điểm ảnh mà thư viện màn hình bạn sử dụng cung cấp cho. Thông thường chúng có tên là drawPixel
+Thay đổi hàm tft.drawPixel thành hàm vẽ 1 điểm ảnh mà thư viện màn hình bạn sử dụng cung cấp cho. Thông thường chúng có tên là drawPixel hoặc setPixel
 
 # Sử dụng
  Có 3 hàm cơ bản:
