@@ -22,9 +22,15 @@ class MakeFont
    	void print(int16_t x,int16_t y,unsigned char *s,uint16_t color,uint16_t backcolor);
    	void print(int16_t x,int16_t y,char *s,uint16_t color,uint16_t backcolor);
     void print(int16_t x,int16_t y,String str,uint16_t color,uint16_t backcolor);
+
+    void print(int16_t x,int16_t y,unsigned char *s,uint16_t color);
+    void print(int16_t x,int16_t y,char *s,uint16_t color);
+    void print(int16_t x,int16_t y,String str,uint16_t color);
     uint16_t getLength(unsigned char *s);
     uint16_t getLength(char *s);
     uint16_t getLength(String str);
+
+     //giữ lại cho các ver cũ
     void print_noBackColor(int16_t x,int16_t y,unsigned char *s,uint16_t color);
     void print_noBackColor(int16_t x,int16_t y,char *s,uint16_t color);
     void print_noBackColor(int16_t x,int16_t y,String str,uint16_t color);
@@ -32,12 +38,18 @@ class MakeFont
 
     unsigned char putChar(int16_t x,int16_t y,uint16_t txt,uint8_t cR,uint8_t cG,uint8_t cB,uint8_t cBR,uint8_t cBG,uint8_t cBB);
     void print(int16_t x,int16_t y,unsigned char *s,uint8_t cR,uint8_t cG,uint8_t cB,uint8_t cBR,uint8_t cBG,uint8_t cBB);
-    void print(int16_t x,int16_t y,char *s,uint16_t color,uint8_t cR,uint8_t cG,uint8_t cB,uint8_t cBR,uint8_t cBG,uint8_t cBB);
+    void print(int16_t x,int16_t y,char *s,uint8_t cR,uint8_t cG,uint8_t cB,uint8_t cBR,uint8_t cBG,uint8_t cBB);
     void print(int16_t x,int16_t y,String str,uint8_t cR,uint8_t cG,uint8_t cB,uint8_t cBR,uint8_t cBG,uint8_t cBB);
+    
+    //giữ lại cho các ver cũ
     unsigned char putChar_noBackColor(int16_t x,int16_t y,uint16_t txt,uint8_t cR,uint8_t cG,uint8_t cB);
     void print_noBackColor(int16_t x,int16_t y,unsigned char *s,uint8_t cR,uint8_t cG,uint8_t cB);
     void print_noBackColor(int16_t x,int16_t y,char *s,uint8_t cR,uint8_t cG,uint8_t cB);
     void print_noBackColor(int16_t x,int16_t y,String str,uint8_t cR,uint8_t cG,uint8_t cB);
+
+    void print(int16_t x,int16_t y,unsigned char *s,uint8_t cR,uint8_t cG,uint8_t cB);
+    void print(int16_t x,int16_t y,char *s,uint8_t cR,uint8_t cG,uint8_t cB);
+    void print(int16_t x,int16_t y,String str,uint8_t cR,uint8_t cG,uint8_t cB);
 
    	MakeFont(set_px_typedef set_px);
     MakeFont(set_px2_typedef set_px);
