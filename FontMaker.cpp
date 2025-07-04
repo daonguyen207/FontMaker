@@ -8,7 +8,7 @@
 
 MakeFont::MakeFont(set_px_typedef set_px)
 {
-	FontMaker_setpx = set_px;
+   FontMaker_setpx = set_px;
 }
 MakeFont::MakeFont(set_px2_typedef set_px)
 {
@@ -80,6 +80,17 @@ void MakeFont::print(int16_t x,int16_t y,unsigned char *s,uint16_t color,uint16_
       s+=offset;
    }
 }
+void MakeFont::print(int16_t x,int16_t y,unsigned char *s,uint16_t color)
+{
+   unsigned char offset=0;
+   uint16_t utf8_addr;
+   while(*s)
+   {
+      utf8_addr=UTF8_GetAddr(s,&offset);
+      x +=putChar_noBackColor(x,y,utf8_addr,color)+1;
+      s+=offset;
+   }
+}
 void MakeFont::print(int16_t x,int16_t y,unsigned char *s,uint8_t cR,uint8_t cG,uint8_t cB,uint8_t cBR,uint8_t cBG,uint8_t cBB)
 {
    unsigned char offset=0;
@@ -88,6 +99,17 @@ void MakeFont::print(int16_t x,int16_t y,unsigned char *s,uint8_t cR,uint8_t cG,
    {
       utf8_addr=UTF8_GetAddr(s,&offset);
       x +=putChar(x,y,utf8_addr,cR,cG,cB,cBR,cBG,cBB)+1;
+      s+=offset;
+   }
+}
+void MakeFont::print(int16_t x,int16_t y,unsigned char *s,uint8_t cR,uint8_t cG,uint8_t cB)
+{
+   unsigned char offset=0;
+   uint16_t utf8_addr;
+   while(*s)
+   {
+      utf8_addr=UTF8_GetAddr(s,&offset);
+      x +=putChar_noBackColor(x,y,utf8_addr,cR,cG,cB)+1;
       s+=offset;
    }
 }
@@ -102,7 +124,18 @@ void MakeFont::print(int16_t x,int16_t y,char *s,uint16_t color,uint16_t backcol
       s+=offset;
    }
 }
-void MakeFont::print(int16_t x,int16_t y,char *s,uint16_t color,uint8_t cR,uint8_t cG,uint8_t cB,uint8_t cBR,uint8_t cBG,uint8_t cBB)
+void MakeFont::print(int16_t x,int16_t y,char *s,uint16_t color)
+{
+   unsigned char offset=0;
+   uint16_t utf8_addr;
+   while(*s)
+   {
+      utf8_addr=UTF8_GetAddr((unsigned char *)s,&offset);
+      x +=putChar_noBackColor(x,y,utf8_addr,color)+1;
+      s+=offset;
+   }
+}
+void MakeFont::print(int16_t x,int16_t y,char *s,uint8_t cR,uint8_t cG,uint8_t cB,uint8_t cBR,uint8_t cBG,uint8_t cBB)
 {
    unsigned char offset=0;
    uint16_t utf8_addr;
@@ -110,6 +143,17 @@ void MakeFont::print(int16_t x,int16_t y,char *s,uint16_t color,uint8_t cR,uint8
    {
       utf8_addr=UTF8_GetAddr((unsigned char *)s,&offset);
       x +=putChar(x,y,utf8_addr,cR,cG,cB,cBR,cBG,cBB)+1;
+      s+=offset;
+   }
+}
+void MakeFont::print(int16_t x,int16_t y,char *s,uint8_t cR,uint8_t cG,uint8_t cB)
+{
+   unsigned char offset=0;
+   uint16_t utf8_addr;
+   while(*s)
+   {
+      utf8_addr=UTF8_GetAddr((unsigned char *)s,&offset);
+      x +=putChar_noBackColor(x,y,utf8_addr,cR,cG,cB)+1;
       s+=offset;
    }
 }
@@ -125,6 +169,18 @@ void MakeFont::print(int16_t x,int16_t y,String str,uint16_t color,uint16_t back
       s+=offset;
    }
 }
+void MakeFont::print(int16_t x,int16_t y,String str,uint16_t color)
+{
+   unsigned char offset=0;
+   uint16_t utf8_addr;
+   unsigned char *s = (unsigned char *)&str[0];
+   while(*s)
+   {
+      utf8_addr=UTF8_GetAddr((unsigned char *)s,&offset);
+      x +=putChar_noBackColor(x,y,utf8_addr,color)+1;
+      s+=offset;
+   }
+}
 void MakeFont::print(int16_t x,int16_t y,String str,uint8_t cR,uint8_t cG,uint8_t cB,uint8_t cBR,uint8_t cBG,uint8_t cBB)
 {
    unsigned char offset=0;
@@ -134,6 +190,18 @@ void MakeFont::print(int16_t x,int16_t y,String str,uint8_t cR,uint8_t cG,uint8_
    {
       utf8_addr=UTF8_GetAddr((unsigned char *)s,&offset);
       x +=putChar(x,y,utf8_addr,cR,cG,cB,cBR,cBG,cBB)+1;
+      s+=offset;
+   }
+}
+void MakeFont::print(int16_t x,int16_t y,String str,uint8_t cR,uint8_t cG,uint8_t cB)
+{
+   unsigned char offset=0;
+   uint16_t utf8_addr;
+   unsigned char *s = (unsigned char *)&str[0];
+   while(*s)
+   {
+      utf8_addr=UTF8_GetAddr((unsigned char *)s,&offset);
+      x +=putChar_noBackColor(x,y,utf8_addr,cR,cG,cB)+1;
       s+=offset;
    }
 }
