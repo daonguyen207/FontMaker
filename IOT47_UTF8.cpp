@@ -285,7 +285,7 @@ uint16_t UTF8_GetAddr(unsigned char *utf8_char,unsigned char *char_offset)
     utf8_value|=(uint32_t)(*(utf8_char+3));       
   }
   else return '?';
-  for(unsigned char i = 0; i < sizeof(UTF8_table)/4; i++)
+  for(int i = 0; i < sizeof(UTF8_table)/4; i++)
   {
       #ifdef arduinoIDE
        if(utf8_value == pgm_read_dword(UTF8_table + i))
@@ -298,3 +298,4 @@ uint16_t UTF8_GetAddr(unsigned char *utf8_char,unsigned char *char_offset)
 }
 //------------------------------------------------------------------------------------------------//
 //endfile
+
